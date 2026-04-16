@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zahlung erfolgreich</title>
+
+<style>
+body {
+    font-family: Georgia, serif;
+    background: #f5f0e8;
+    text-align: center;
+    padding: 60px;
+    color: #3a2e1f;
+}
+
+.container {
+    max-width: 600px;
+    margin: auto;
+}
+
+.box {
+    border: 1px solid #d6c4a3;
+    border-radius: 20px;
+    padding: 30px;
+    margin-top: 30px;
+    background: #fff;
+}
+
+.button {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 12px 25px;
+    background: #b08b57;
+    color: white;
+    border-radius: 10px;
+    text-decoration: none;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Zahlung erfolgreich</h1>
+<p>Dein Zugang zum Klarheitsraum wurde freigeschaltet.</p>
+
+<div class="box">
+    <p><strong>DEIN ZUGANGSCODE</strong></p>
+    <h2 id="zugangscode">Wird geladen...</h2>
+</div>
+
+<a href="https://klarheits-raum.ch" class="button">Zurück zur Website</a>
+
+</div>
+
+<script>
+const urlParams = new URLSearchParams(window.location.search);
+const code = urlParams.get('code');
+
+let displayCode = "Kein Code erkannt";
+
+if (code === "AX72-10A") displayCode = "AX72-10A";
+if (code === "AX72-20A") displayCode = "AX72-20A";
+if (code === "AX72-40A") displayCode = "AX72-40A";
+
+document.getElementById("zugangscode").innerText = displayCode;
+</script>
+
+</body>
+</html>
