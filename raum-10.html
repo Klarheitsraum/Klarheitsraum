@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Klarheitsraum – Bereich 10</title>
+<style>
+:root{
+  --bg1:#f7f2ea; --bg2:#ede4d3; --bg3:#e2d5c0;
+  --gold1:#e8c88a; --gold2:#c9a96e; --gold3:#9a7040;
+  --text:#261a0e; --muted:#6d5440; --line:rgba(155,112,64,.18);
+  --card:rgba(255,253,248,.9); --shadow:0 12px 40px rgba(78,54,28,.08);
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:Georgia,"Palatino Linotype",serif;
+  color:var(--text);
+  background:linear-gradient(160deg,var(--bg1) 0%, var(--bg2) 50%, var(--bg3) 100%);
+}
+.wrap{width:min(980px, calc(100vw - 40px)); margin:0 auto;}
+.section{padding:72px 0}
+.card{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:24px;
+  padding:32px 28px;
+  box-shadow:var(--shadow);
+}
+h1{
+  font-weight:300;
+  font-size:clamp(34px,5vw,62px);
+  letter-spacing:.08em;
+  margin:0 0 16px;
+  text-align:center;
+}
+h2{
+  font-weight:400;
+  font-size:28px;
+  margin:0 0 14px;
+}
+p{
+  line-height:1.9;
+  color:#634b38;
+  font-size:17px;
+  margin:0 0 16px;
+}
+.lead{
+  max-width:760px;
+  margin:0 auto 34px;
+  text-align:center;
+  color:var(--muted);
+}
+.btn-row{
+  display:flex;
+  gap:14px;
+  justify-content:center;
+  flex-wrap:wrap;
+  margin-top:28px;
+}
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-width:220px;
+  padding:16px 24px;
+  border-radius:14px;
+  border:1px solid var(--line);
+  text-decoration:none;
+  font-size:13px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:#7a6248;
+  background:rgba(255,253,248,.75);
+}
+.btn.primary{
+  background:linear-gradient(135deg,var(--gold2),var(--gold3));
+  color:#fffaf2;
+  border:none;
+}
+.small{
+  font-size:14px;
+  color:#8a715b;
+}
+.code-box{
+  margin:26px auto 0;
+  max-width:540px;
+  padding:22px;
+  border-radius:18px;
+  background:#fff;
+  border:1px solid rgba(201,169,110,.45);
+}
+.code-display{
+  font-size:34px;
+  line-height:1.2;
+  color:#2b1d10;
+  text-align:center;
+  letter-spacing:.05em;
+  word-break:break-word;
+}
+.center{text-align:center}
+.notice{
+  margin-top:22px;
+  padding:18px 20px;
+  border-radius:16px;
+  background:rgba(255,255,255,.62);
+  border:1px solid rgba(155,112,64,.16);
+}
+.input{
+  width:100%;
+  max-width:520px;
+  display:block;
+  margin:0 auto 16px;
+  padding:18px 18px;
+  border-radius:14px;
+  border:1px solid rgba(155,112,64,.24);
+  font-size:18px;
+  background:#fff;
+  color:#2b1d10;
+  text-align:center;
+}
+.error{
+  color:#8a2f2f;
+  text-align:center;
+  min-height:28px;
+  margin-top:10px;
+}
+.footer{
+  padding:20px 0 50px;
+  text-align:center;
+  color:#9a7d62;
+  font-size:13px;
+}
+@media (max-width:640px){
+  .card{padding:24px 20px}
+  .btn{min-width:unset; width:100%}
+}
+</style>
+</head>
+<body>
+  <section class="section">
+    <div class="wrap">
+      <h1>Klarheitsraum – Bereich 10</h1>
+      <p class="lead">Dies ist der Zugang für das Einstiegspaket mit 10 Fragen.</p>
+
+      <div class="card">
+        <h2 class="center">Einstieg · 10 Fragen</h2>
+        <div class="code-box">
+          <div class="small center">Aktiver Zugangscode</div>
+          <div id="codeDisplay" class="code-display">Wird geladen…</div>
+        </div>
+
+        <div class="notice">
+          <p><strong>Wichtig:</strong> Diese Seite ist die vorbereitete Zugangsebene für Phase 1. Von hier aus kann der Nutzer kontrolliert in den passenden Bereich weitergeführt werden.</p>
+          <p class="small">In Phase 2 wird diese Ebene an das Profi-System mit Serverprüfung, Verbrauchszählung und echter Freischaltung angebunden.</p>
+        </div>
+
+        <div class="btn-row">
+          <a id="roomBtn" class="btn primary" href="https://klarheits-raum.ch">Zur Website</a>
+          <a class="btn" href="zugang.html">Anderen Code eingeben</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="footer">Klarheitsraum · Bereich 10</div>
+
+<script>
+const params = new URLSearchParams(window.location.search);
+const code = params.get('code') || 'Kein Code erkannt';
+document.getElementById('codeDisplay').textContent = code;
+</script>
+</body>
+</html>
